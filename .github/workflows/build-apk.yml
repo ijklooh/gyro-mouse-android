@@ -13,10 +13,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Grant execute permission
-        run: chmod +x gradlew
-      - name: Build debug APK
-        run: ./gradlew assembleDebug
+          cache: 'gradle'
+      - name: Build debug APK (using gradle)
+        run: gradle assembleDebug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
